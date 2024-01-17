@@ -4,20 +4,20 @@ import logo from '../../assets/images/logo.png';
 const Navbar = () => {
   return (
     <>
-      <div className="bg-black p-2 w-full flex justify-center items-center">
+      <div className="bg-black p-2 w-full justify-center items-center">
         <h3 className='text-white font-inter text-2xl font-bold tracking-normal leading-none text-center'>
           Welcome All
         </h3>
       </div>
-      <div className="flex justify-around items-center">
+      <div className="flex items-center justify-between">
         <div>
-          <img className="h-28 w-full" src={logo} alt="store"></img>
+          <img className="h-20 w-20" src={logo} alt="store"></img>
         </div>
-        <div className="flex flex-row items-center">
+        <div className="flex flex-row justify-around items-center mr-12">
           <button className="font-inter text-base font-medium tracking-normal leading-none text-center mr-4">
             Logout
           </button>
-          <div className="flex flex-row items-center">
+          <div className="flex flex-row items-center cursor-pointer">
             <svg 
               xmlns="http://www.w3.org/2000/svg" 
               fill="none" 
@@ -29,7 +29,9 @@ const Navbar = () => {
               strokeLinejoin="round" 
               d="M21 8.25c0-2.485-2.099-4.5-4.688-4.5-1.935 0-3.597 1.126-4.312 2.733-.715-1.607-2.377-2.733-4.313-2.733C5.1 3.75 3 5.765 3 8.25c0 7.22 9 12 9 12s9-4.78 9-12Z" />
             </svg>
-            <p className='font-inter text-base font-medium tracking-normal leading-none text-center mr-2'>Wish List</p>
+            <p className='font-inter text-base font-medium tracking-normal leading-none text-center mr-4'>
+              Wish List
+            </p>
           </div>
           <div className="flex flex-row items-center cursor-pointer">
             <svg xmlns="http://www.w3.org/2000/svg" 
@@ -46,7 +48,7 @@ const Navbar = () => {
           </div>
         </div>
       </div>
-      <div className="flex bg-black p-4 w-full justify-around">
+      <div className="flex bg-black p-4 w-full justify-around justify-between">
         <div className="text-white font-inter text-base font-medium tracking-normal leading-none text-center">
           50% OFF
         </div>
