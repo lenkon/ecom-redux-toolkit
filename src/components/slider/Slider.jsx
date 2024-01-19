@@ -29,6 +29,17 @@ const Slider = () => {
           </div>
         })}
       </div>
+      <div className="flex absolute bottom-10 left-[45%]">
+        {sliderData.map((dot, index) => {
+          return (
+            <div className='mr-4 key={index}'>
+              <div className={index === slideIndex 
+                ? 'bg-green-300 rounded-full p-4 cursor-pointer' 
+                : 'bg-white rounded-full p-4 cursor-pointer'}></div>
+            </div>
+          );
+        })}
+      </div>
       <button onClick={() => dispatch(nextSlide(slideIndex + 1))}>Next</button>
       <button onClick={() => dispatch(prevSlide(slideIndex - 1))}>Prev</button>
     </div>
