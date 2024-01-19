@@ -27,7 +27,7 @@ const Slider = () => {
                 )}
               </div>
               {/* <div className="absolute top-44 mx-auto inset-x-1/4"> */}
-              <div className="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2">
+              <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2">
                 <p className='text-white text-4xl font-inter font-bold tracking-normal leading-none'>
                   {parseInt(item.id) === slideIndex && item.text}
                 </p>
@@ -36,12 +36,13 @@ const Slider = () => {
           );
         })}
       </div>
-      <div className="flex absolute bottom-12 left-[45%]">
+      {/* <div className="flex absolute bottom-12 left-[45%]"> */}
+      <div className="flex absolute bottom-4 left-1/2 -translate-x-1/2 -translate-y-1/2">
         {sliderData.map((dot, index) => {
           return (
             <div className='mr-4' key={dot.id}>
               <div className={index === slideIndex 
-                ? 'bg-green-300 rounded-full p-4 cursor-pointer' 
+                ? 'bg-green-500 rounded-full p-4 cursor-pointer' 
                 : 'bg-white rounded-full p-4 cursor-pointer'}
                 onClick={() => dispatch(dotSlide(index))}
                 >
