@@ -6,7 +6,7 @@ const Main = () => {
   return (
     <div>
       <Navbar />
-      <Slider />
+      <Slider></Slider >
     </div>
   )
 }
