@@ -21,11 +21,14 @@
 const withMT = require("@material-tailwind/react/utils/withMT");
  
 module.exports = withMT({
-  content: [],
+ content: [],
   theme: {
     extend: {
       fontFamily: {
         inter: ["Inter", "sans-serif"],
+      },
+      colors: {
+        'color-green': '#97BF0F',        
       },
     },
   },
