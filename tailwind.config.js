@@ -28,7 +28,8 @@ module.exports = withMT({
         inter: ["Inter", "sans-serif"],
       },
       colors: {
-        'color-green': '#97BF0F',        
+        'color-green': '#97BF0F', 
+        'color-purple': 'rgb(93 13 83 / var(--tw-bg-opacity))',   
       },
     },
   },
