@@ -3,6 +3,7 @@ import React from 'react';
 import clothes from '../../assets/images/clothes.jpg';
 import { filteredProducts } from '../../features/slices/productsSlice';
 import { useDispatch } from 'react-redux';
+import { Link } from 'react-router-dom';
 
 const NavigateButtons = () => {
   const buttons = [
@@ -24,19 +25,21 @@ const NavigateButtons = () => {
           buttons.map((button, index) => {
             return (
               <div key={index} className='mr-4'>
-                <ButtonGroup color='blue-gray'>
-                  <Button 
-                    size='md'  
-                    variant='outlined' 
-                    ripple={true} 
-                    className='hover:bg-green-900 duration-300 ease-in-out'
-                    onClick={() => dispatch(filteredProducts(button))}
-                  >
-                    {
-                      button
-                    }
-                  </Button>
-                </ButtonGroup>                
+                <Link to={"filteredProducts/" + button}>
+                  <ButtonGroup color='blue-gray'>                
+                    <Button 
+                      size='md'  
+                      variant='outlined' 
+                      ripple={true} 
+                      className='hover:bg-green-900 duration-300 ease-in-out'
+                      onClick={() => dispatch(filteredProducts(button))}
+                    >
+                      {
+                        button
+                      }
+                    </Button>
+                  </ButtonGroup>               
+                </Link>                   
               </div>
             );
           })}
