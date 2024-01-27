@@ -28,7 +28,7 @@ const ProductCard = ({id, name, text, img, price, colors}) => {
       <CardFooter className="pt-0">
         <Typography variant='small'>{price}</Typography>
         <Typography variant='small' color='gray' className='flex gap-1'>
-          {colors.map((color, index) => {
+          {colors?.map((color, index) => {
             return <i 
               className='fas fa-map-marker-alt fa-sm mt-[3px] p-2 rounded-full mr-4' 
               key={index}
