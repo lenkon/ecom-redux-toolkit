@@ -18,7 +18,28 @@ export const productsSlice = createSlice({
       } catch (err) {
         return err;
       }
-    }
+    },
+
+    filterGender(state, action) {
+      try {
+        const gender = state.filteredProducts.filter(
+          (product) => product.gender === action.payload
+        );
+        state.error = false;
+        state.filteredProducts = gender;
+        const oneGenderType = gender.length > 0;
+        if (oneGenderType) {
+          state.error = false;
+          const saveState = JSON.stringify(gender);
+          sessionStorage.setItem("filteredData", saveState);
+        } else {
+          state.error = true;
+          state.filteredProducts = [];
+        }
+      } catch (err) {
+        return err;
+      }
+    },
   }
 });
 

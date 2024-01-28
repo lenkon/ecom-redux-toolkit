@@ -9,6 +9,7 @@ const FilteredProducts = () => {
   console.log("products:", products);
   const {type} = useParams();
   console.log("type:", type);
+  const genderButtons = ["male", "female"];
 
   return (
     <div>
