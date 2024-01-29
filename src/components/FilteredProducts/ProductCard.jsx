@@ -37,8 +37,8 @@ const ProductCard = ({id, name, text, img, price, colors}) => {
           })}
         </Typography>
       </CardFooter>
-    </Card>
+    </Card>    
   );
 }
 
-export default ProductCard
+export default ProductCard;
