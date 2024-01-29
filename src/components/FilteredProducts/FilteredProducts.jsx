@@ -14,12 +14,12 @@ const FilteredProducts = () => {
   return (
     <div>
       <div className="pt-16">
-        <div className="pl-14">
+        <div className="pl-4">
           <h1 className='text-4xl font-inter text-gray-600 font-bold tracking-normal leading-none'>
             {type}
           </h1>
         </div>
-        <div className="grid grid-cols-4 justify-items-center py-8 gap-1">
+        <div className="grid grid-cols-3 justify-items-center py-8 gap-8">
           {products.filter((product) => product.type === type).map((product, index) => {
             return (
               <div key={index} className="">
