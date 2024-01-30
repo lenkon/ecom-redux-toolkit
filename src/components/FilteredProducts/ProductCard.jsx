@@ -17,7 +17,7 @@ const ProductCard = ({id, name, text, img, price, colors}) => {
   const { type } = useParams();
 
   return (
-    <div className="">
+    <Link to={`/filteredProducts/${type}/` + id}>              
       <Card className="mt-6 w-96" onClick={() => dispatch(singleProduct(id))}>
         <CardHeader color="blue-gray" className="relative h-96">
           <img
@@ -46,7 +46,7 @@ const ProductCard = ({id, name, text, img, price, colors}) => {
           </Typography>
         </CardFooter>
       </Card>    
-    </div>
+    </Link>
   );
 }
 
