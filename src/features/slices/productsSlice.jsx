@@ -13,7 +13,7 @@ export const productsSlice = createSlice({
       try {
         const filter = storeData.filter((product) => product.type === action.payload);
         state.filteredProducts = filter;
-        console.log("filter:", filter);
+        // console.log("filter:", filter);
         const saveState = JSON.stringify(filter);
         sessionStorage.setItem("filteredData", saveState);
       } catch (err) {
@@ -29,7 +29,7 @@ export const productsSlice = createSlice({
         state.singleProduct = oneProduct;
         const saveState = JSON.stringify(oneProduct);
         sessionStorage.setItem("oneProduct", saveState);
-        console.log("oneProduct:", oneProduct);
+        // console.log("oneProduct:", oneProduct);
       } catch(err) {
         return err;
       }
