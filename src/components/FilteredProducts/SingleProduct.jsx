@@ -1,11 +1,13 @@
-import React from 'react';
+import React, { useState } from 'react';
 import { useSelector } from 'react-redux';
 import { useParams } from 'react-router-dom';
 
 const SingleProduct = () => {
   const product = useSelector((state) => state.products.singleProduct);
   // console.log("singleProduct:", product);
+  const productSize = product[0].size[0] ? product[0].size[0] : "";
   const { id } = useParams();
+  const [size, setSize] = useState(productSize);
 
   return (
     <div>
@@ -25,8 +27,13 @@ const SingleProduct = () => {
                 <p className="text-gray-600 text-xl font-inter font-bold tracking-normal leading-none pb-4">{el.text}</p>
                 <div className="pb-4">
                   <div className="">
-                    <label htmlFor="countries" className='block mb-2 text-sm font-medium text-gray-900 dark:text-white pb-4'>Pick a size</label>
-                    <select name="" id="" className='bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500 pb-4'>
+                    <label htmlFor="size" className='block mb-2 text-sm font-medium text-gray-900 dark:text-white pb-4'>Pick a size</label>
+                    <select 
+                      name="size" 
+                      id="size" 
+                      className='bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500 pb-4'>
+                      value={size}
+                      onChange{(e) => setSize(e.target.value)}
                       {el.size.map((item, index) => {
                         return(
                           <option value={item} key={index}>{item}</option>
