@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 import { useSelector } from 'react-redux';
 import { useParams } from 'react-router-dom';
+import { Tooltip, Button } from "@material-tailwind/react";
 
 const SingleProduct = () => {
   const product = useSelector((state) => state.products.singleProduct);
@@ -63,7 +64,7 @@ const SingleProduct = () => {
                   )}
                 </div>
                 {/* <div className=""> */}
-                  <div className="">
+                  <div className="pb-4">
                     <label htmlFor="color" className='block mb-2 text-sm font-medium text-gray-900 dark:text-white pb-4'>Pick a color</label>
                     <select 
                       name="color" 
@@ -79,6 +80,11 @@ const SingleProduct = () => {
                     </select>
                   </div>
                 {/* </div> */}
+                <Tooltip content="Add to Cart" placement="bottom">
+                  <Button color='gray' size='lg' variant='outlined' ripple={true}>
+                    Add to Cart
+                  </Button>
+                </Tooltip>
               </div>
             </div>
           </div>
