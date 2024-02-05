@@ -6,9 +6,9 @@ import ProductCard from './ProductCard';
 
 const FilteredProducts = () => {
   const products = useSelector((state) => state.products.filteredProducts);
-  console.log("products:", products);
+  // console.log("products:", products);
   const {type} = useParams();
-  console.log("type:", type);
+  // console.log("type:", type);
   const genderButtons = ["male", "female"];
 
   return (
@@ -29,7 +29,7 @@ const FilteredProducts = () => {
                   text={product.text}
                   img={product.img}
                   price={product.price}
-                  color={product.color}
+                  colors={product.color}
                 >                
                 </ProductCard>
               </div>
