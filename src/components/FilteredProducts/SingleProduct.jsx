@@ -2,12 +2,15 @@ import React, { useState } from 'react';
 import { useSelector } from 'react-redux';
 import { useParams } from 'react-router-dom';
 import { Tooltip, Button } from "@material-tailwind/react";
+import {addToCart} from "../../features/slices/cartSlice";
+import { useDispatch } from 'react-redux';
 
 const SingleProduct = () => {
   const product = useSelector((state) => state.products.singleProduct);
   // console.log("singleProduct:", product);
   const productSize = product[0].size[0] ? product[0].size[0] : "";
   const { id } = useParams();
+  const dispatch = useDispatch();
   const [size, setSize] = useState(productSize);
   const productColor = product[0].size[0];
   const [color, setColor] = useState(productColor);
@@ -81,7 +84,23 @@ const SingleProduct = () => {
                   </div>
                 {/* </div> */}
                 <Tooltip content="Add to Cart" placement="bottom">
-                  <Button color='gray' size='lg' variant='outlined' ripple={true}>
+                  <Button 
+                    color='gray' 
+                    size='lg' 
+                    variant='outlined' 
+                    ripple={true}
+                    onClick={() => dispatch(
+                      addToCart({
+                        id: el.id,
+                        name: el.name,
+                        size: size,
+                        color: color,
+                        price: el.price,
+                        amount: 1,
+                        totalPrice: el.price,
+                      })
+                    )}
+                  >
                     Add to Cart
                   </Button>
                 </Tooltip>
