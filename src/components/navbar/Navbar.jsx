@@ -1,9 +1,10 @@
 import React, { useState } from 'react';
 import logo from '../../assets/images/logo.png';
+import Cart from '../cart/Cart';
 
 const Navbar = () => {
-  const [open, setOpen] = React.useState(false);
-  const handleOpen = () => setOpen(!open);
+  const [open, setOpen] = useState(false);
+  const handleOpen = () => setOpen(true);
   return (
     <>
       <div className="bg-black p-2 w-full justify-center items-center">
@@ -35,7 +36,7 @@ const Navbar = () => {
               Wish List
             </p>
           </div>
-          <div className="flex flex-row items-center cursor-pointer">
+          <div className="flex flex-row items-center cursor-pointer" onClick={handleOpen}>
             <svg xmlns="http://www.w3.org/2000/svg" 
               fill="none" 
               viewBox="0 0 24 24" 
@@ -47,6 +48,9 @@ const Navbar = () => {
             <p className='font-inter text-base font-medium tracking-normal leading-none text-center mr-2'>
               Shopping Bag
             </p>
+            <div className="">
+            {open && <Cart className="" openModal={open} setOpen={setOpen} />}
+            </div>
           </div>
         </div>
       </div>
