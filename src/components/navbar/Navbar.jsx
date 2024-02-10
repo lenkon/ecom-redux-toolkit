@@ -1,7 +1,9 @@
-import React from 'react';
+import React, { useState } from 'react';
 import logo from '../../assets/images/logo.png';
 
 const Navbar = () => {
+  const [open, setOpen] = React.useState(false);
+  const handleOpen = () => setOpen(!open);
   return (
     <>
       <div className="bg-black p-2 w-full justify-center items-center">
