@@ -1,16 +1,16 @@
 import React, { useState } from 'react';
 import logo from '../../assets/images/logo.png';
 import Cart from '../cart/Cart';
-import { useSelector } from 'react-redux';
+import { useSelector, useDispatch } from 'react-redux';
 
 
 const Navbar = () => {
-  // const totalAmount = useSelector((state) => state.totalAmount);
   const totalAmount = useSelector((state) => state.cart.totalAmount);
-
-  // console.log('totalAmount:',totalAmount);
   const [open, setOpen] = useState(false);
   const handleOpen = () => setOpen(true);
+
+  // const dispatch = useDispatch();
+
   return (
     <>
       <div className="bg-black p-2 w-full justify-center items-center">
@@ -79,4 +79,4 @@ const Navbar = () => {
   );
 };
 
-export default Navbar
+export default Navbar;
