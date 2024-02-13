@@ -24,12 +24,24 @@ const Cart = ({ openModal, setOpen }) => {
             unmount: { scale: 0.9, y: -100 },
           }}
         >
-          <DialogHeader>Its a simple dialog.</DialogHeader>
-          <DialogBody>
-            The key to more success is to have a lot of pillows. Put it this way,
-            it took me twenty five years to get these plants, twenty five years of
-            blood sweat and tears, and I&apos;m never giving up, I&apos;m just
-            getting started. I&apos;m up to something. Fan luv.
+          <DialogHeader>Shopping Bag</DialogHeader>
+          <DialogBody 
+            divider 
+            className='flex flex-col justify-center items-start'
+          >
+            {cart.map((item, index) => {
+              return (
+                <div key={index}>
+                  <div className="grid grid-cols-2 py-4">
+                    <div>
+                      <img className="h-[125px] rounded-md" 
+                        src={item.img} 
+                        alt={item.name}></img>
+                    </div>
+                  </div>
+                </div>
+              );
+            })}
           </DialogBody>
           {/* <DialogFooter> </DialogFooter> */}
         </Dialog>
@@ -43,14 +55,13 @@ const Cart = ({ openModal, setOpen }) => {
             unmount: { scale: 0.9, y: -100 },
           }}
         >
-          <DialogHeader>Its a simple dialog.</DialogHeader>
+          <DialogHeader>Shopping Bag</DialogHeader>
           <DialogBody>
-            The key to more success is to have a lot of pillows. Put it this way,
-            it took me twenty five years to get these plants, twenty five years of
-            blood sweat and tears, and I&apos;m never giving up, I&apos;m just
-            getting started. I&apos;m up to something. Fan luv.
+            <div className="">
+              <h1 className="text-black text-3xl font-inter font-bold tracking-normal leading-none py-4">Your bag is empty</h1>
+              <p className="text-black text-base font-inter tracking-normal leading-none">Add some products</p>
+            </div>
           </DialogBody>
-          {/* <DialogFooter> </DialogFooter> */}
         </Dialog>
       )}
     </>
