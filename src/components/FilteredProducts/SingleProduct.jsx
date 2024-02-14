@@ -93,6 +93,8 @@ const SingleProduct = () => {
                       addToCart({
                         id: el.id,
                         name: el.name,
+                        img: el.img,
+                        text: el.text,
                         size: size,
                         color: color,
                         price: el.price,
