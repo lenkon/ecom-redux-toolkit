@@ -68,7 +68,21 @@ const Cart = ({ openModal, setOpen }) => {
                         Total Item Price: 
                           <span className="ml-2">${item.totalPrice}</span>
                       </p>
-                      
+                      <div className="pt-4">
+                        <Tooltip 
+                          content='Remove from the cart'
+                          placement='bottom'  
+                        >
+                          <Button 
+                            size='sm' 
+                            color='red' 
+                            ripple={true} 
+                            variant='filled'
+                          >
+                            Remove
+                          </Button>
+                        </Tooltip>
+                      </div>
                     </div>
                   </div>
                 </div>
