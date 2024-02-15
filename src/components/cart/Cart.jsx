@@ -65,7 +65,7 @@ const Cart = ({ openModal, setOpen }) => {
                           <span className="ml-2">${item.price}</span>
                       </p>
                       <p className="text-black text-sm font-inter tracking-normal leading-none pt-2">
-                        Total Item Price: 
+                        Total Item Price:
                           <span className="ml-2">${item.totalPrice}</span>
                       </p>
                       <div className="pt-4">
@@ -89,7 +89,12 @@ const Cart = ({ openModal, setOpen }) => {
               );
             })}
           </DialogBody>
-          {/* <DialogFooter> </DialogFooter> */}
+          <DialogFooter className='flex justify-start items-center'> 
+            <p className='text-black text-base font-inter tracking-normal leading-none pt-2'>
+              Total price of all products:{" "} 
+              <span className="ml-2">${totalPrice}</span>
+            </p>
+          </DialogFooter>
         </Dialog>
       ) : (
         <Dialog
