@@ -12,7 +12,7 @@ const SingleProduct = () => {
   const { id } = useParams();
   const dispatch = useDispatch();
   const [size, setSize] = useState(productSize);
-  const productColor = product[0].size[0];
+  const productColor = product[0].color[0];
   const [color, setColor] = useState(productColor);
   return (
     <div>
@@ -72,12 +72,15 @@ const SingleProduct = () => {
                     <select 
                       name="color" 
                       id="color" 
-                      className='bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500 pb-4'>
+                      className='bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500 pb-4'
                       value={color}
-                      onChange{(e) => setColor(e.target.value)}
-                      {el.color.map((item, index) => {
+                      onChange = {(e) => setColor(e.target.value)}                      
+                    >
+                      {el.color.map((color, index) => {
                         return(
-                          <option value={item} key={index}>{item}</option>
+                          <option value={color} key={index}>
+                            {color}
+                          </option>
                         )                        
                       })}
                     </select>

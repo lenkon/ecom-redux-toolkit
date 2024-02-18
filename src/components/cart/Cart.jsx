@@ -52,7 +52,7 @@ const Cart = ({ openModal, setOpen }) => {
                           <span className="ml-2">{item.size}</span>
                       </p>
                       <p className="text-black text-sm font-inter tracking-normal leading-none pt-2">
-                        Selected color: 
+                        Selected color: {" "}
                           <span 
                             className="ml-2 rounded-full px-2"
                             style={{backgroundColor: item.color}}
