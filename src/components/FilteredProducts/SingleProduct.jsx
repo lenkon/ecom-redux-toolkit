@@ -8,7 +8,7 @@ import { useDispatch } from 'react-redux';
 const SingleProduct = () => {
   const product = useSelector((state) => state.products.singleProduct);
   // console.log("singleProduct:", product);
-  const productSize = product[0].size[0] ? product[0].size[0] : "";
+  const productSize = product[0]?.size?.[0] ? product[0].size[0] : "";
   const { id } = useParams();
   const dispatch = useDispatch();
   const [size, setSize] = useState(productSize);
