@@ -5,16 +5,18 @@ import {
   CardBody,
   CardFooter,
   Typography,
-  Button,
+  Tooltip,
+  // Button,
 } from "@material-tailwind/react";
 import { Button } from "@material-tailwind/react";
 import { useDispatch } from 'react-redux';
 import { addToCart } from '../../features/slices/cartSlice';
 
-const ProductSectionItem = ( id, img, name, text, size, price, color, totalPrice ) => {
+
+const ProductSectionItem = ({ id, img, text, price, totalPrice, color, size, name }) => {
   const dispatch = useDispatch();
-  const defaultSize = size[0];
-  const defaultColor = color[0];
+  const defaultSize = size && size.length > 0 ? size[0] : "";
+  const defaultColor = color && color.length > 0 ? color[0] : "";
 
   return (
     <div>
@@ -30,38 +32,51 @@ const ProductSectionItem = ( id, img, name, text, size, price, color, totalPrice
             {text}
           </Typography>
           <div className="flex justify-between items-center pt-4">
-            <Typography color="gray" className="font-medium" textGradient>
-              Size left: {defaultSize}
+            <Typography color="red" className="font-medium" textGradient>
+              Size left:{" "}
+              <span className="text-gray-400 text-base font-extralight">
+                {defaultSize}
+              </span>
             </Typography>
             <Typography color="gray" className="font-medium" textGradient>
-              Color:{""} 
-              <span 
-                className='px-2 rounded-full ml-2' 
-                style={{backgroundColor: {defaultColor}}}
-              ></span>{defaultColor}
+            Color:{" "}
+              <span
+                className="px-2 rounded-full ml-2"
+                style={{ backgroundColor: defaultColor }}
+              ></span>
             </Typography>
           </div>
         </CardBody>
         <CardFooter className="flex justify-center gap-7 pt-2">
           <Tooltip content="Add to Cart" placement='bottom'>
-            <Button onClick={() => dispatch(addToCart{
-              id: id,
-              img: img,
-              text: text,
-              amount: 1,
-              price: price,
-              totalPrice: totalPrice,
-              name: name,
-              size: defaultSize,
-              color: defaultColor,
-            })} size='lg' color='gray' variant='outlined' ripple={true}>
+            <Button 
+              onClick={() => 
+                dispatch(
+                  addToCart({
+                    id: id,
+                    img: img,
+                    text: text,
+                    amount: 1,
+                    price: price,
+                    totalPrice: totalPrice,
+                    name: name,
+                    size: defaultSize,
+                    color: defaultColor,
+                  })
+                )
+              } 
+              size='lg' 
+              color='gray' 
+              variant='outlined' 
+              ripple={true}
+            >
               Add to Cart
             </Button>
           </Tooltip>
         </CardFooter>
       </Card>
     </div>
-  )
-}
+  );
+};
 
 export default ProductSectionItem;
