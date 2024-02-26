@@ -5,7 +5,7 @@ import { BrowserRouter, Routes, Route } from "react-router-dom";
 import FilteredProducts from './components/FilteredProducts/FilteredProducts';
 import SingleProduct from './components/FilteredProducts/SingleProduct';
 import { useSelector } from 'react-redux';
-
+import Login from './components/login/Login';
 
 function App() {
   // const cart = useSelector((state) => state.cart.cart);
@@ -21,6 +21,7 @@ function App() {
       <BrowserRouter>
         <Routes>
           <Route path='/' element={<Main />} />
+          <Route path='/login' element={<Login />} />
           <Route path='/filteredProducts/:type' element={<FilteredProducts />} />
           <Route path='/filteredProducts/:type/:id' element={<SingleProduct />} />       
         </Routes>
