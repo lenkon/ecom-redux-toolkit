@@ -23,8 +23,9 @@ const Login = () => {
           </Typography>
         </CardHeader>
         <CardBody className="flex flex-col gap-4">
-          <Input label="Email" size="lg" />
-          <Input label="Password" size="lg" />
+          <Input label="Email" size="lg" type='text' name='email' />
+          <Input label="Password" size="lg" type='password' name='password' />
+          <Input label="Image URL address" size="lg" type='text' name='image' />
           <div className="-ml-2.5">
             {/* <Checkbox label="Remember Me" /> */}
           </div>
@@ -34,16 +35,7 @@ const Login = () => {
             Sign In
           </Button>
           <Typography variant="small" className="mt-6 flex justify-center">
-            Don&apos;t have an account?
-            <Typography
-              as="a"
-              href="#signup"
-              variant="small"
-              color="blue-gray"
-              className="ml-1 font-bold"
-            >
-              Sign up
-            </Typography>
+            Image is optional
           </Typography>
         </CardFooter>
       </Card>
