@@ -37,7 +37,7 @@ const Login = () => {
         </CardHeader>
         <CardBody className="flex flex-col gap-4">
           <Input 
-            label="Email" 
+            label="Name" 
             size="lg" 
             type='text' 
             name='email' 
