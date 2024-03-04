@@ -8,6 +8,8 @@ import {
   Input,
   Button,
 } from "@material-tailwind/react";
+import { login } from '../../features/slices/authSlice';
+import { useDispatch } from 'react-redux';
 
 const Login = () => {
   const initialState = {
@@ -22,6 +24,8 @@ const Login = () => {
     const {name, value} = e.target;
     setValues({...values, [name]: value});
   };
+
+  const dispatch = useDispatch();
 
   return (
     <div className='grid grid-cols-1 items-center justify-items-center h-screen'>
@@ -40,7 +44,7 @@ const Login = () => {
             label="Name" 
             size="lg" 
             type='text' 
-            name='email' 
+            name='name' 
             value={values.name} 
             onChange={onChange}
           />
@@ -52,13 +56,24 @@ const Login = () => {
             value={values.password} 
             onChange={onChange}
           />
-          <Input label="Image URL address" size="lg" type='text' name='image' />
+          <Input 
+            label="Image URL address" 
+            size="lg" 
+            type='text' 
+            name='image' 
+            value={values.image}
+            onChange={onChange}
+          />
           <div className="-ml-2.5">
             {/* <Checkbox label="Remember Me" /> */}
           </div>
         </CardBody>
         <CardFooter className="pt-0">
-          <Button variant="gradient" fullWidth>
+          <Button 
+            variant="gradient" 
+            fullWidth 
+            onClick={() => dispatch(login(values))}
+          >
             Sign In
           </Button>
           <Typography variant="small" className="mt-6 flex justify-center">
